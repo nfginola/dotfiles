@@ -1,4 +1,2 @@
 
-//@theme "/usr/share/rofi/themes/DarkBlue.rasi"
-
-@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+@theme "/home/nad/.local/share/rofi/themes/spotlight-dark.rasi"
