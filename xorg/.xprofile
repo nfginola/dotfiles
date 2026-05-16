@@ -1,0 +1,3 @@
+autorandr --change
+setxkbmap -layout us,se,no -option grp:win_space_toggle
+udiskie --tray &

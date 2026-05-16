@@ -1,0 +1,14 @@
+*
+!.gitignore
+!.claude.json
+!.claude/
+!.claude/settings.json
+!.claude/commands/
+!.claude/commands/**
+!.claude/plugins/
+!.claude/plugins/installed_plugins.json
+!.claude/projects/
+!.claude/projects/*/
+!.claude/projects/*/memory/
+!.claude/projects/*/memory/**
+!.claude/projects/*/MEMORY.md

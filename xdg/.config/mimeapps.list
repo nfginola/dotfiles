@@ -1,0 +1,11 @@
+[Default Applications]
+x-scheme-handler/mailto=brave-browser.desktop
+application/pdf=org.pwmt.zathura.desktop
+image/png=feh.desktop
+image/jpeg=feh.desktop
+image/gif=feh.desktop
+image/webp=feh.desktop
+image/svg+xml=feh.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop

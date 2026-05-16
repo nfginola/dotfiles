@@ -1,0 +1,9 @@
+*
+!.gitignore
+!.config/
+!.config/nnn/
+!.config/nnn/bookmarks/
+!.config/nnn/bookmarks/**
+!.config/nnn/mime.types
+!.config/nnn/plugins/
+!.config/nnn/plugins/**

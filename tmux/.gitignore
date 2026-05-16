@@ -1,0 +1,11 @@
+*
+!.gitignore
+!.stow-local-ignore
+!setup.sh
+!.config/
+!.config/tmux/
+!.config/tmux/tmux.conf
+!.tmux/
+!.tmux/plugins/
+!.tmux/plugins/tpm/
+!.tmux/plugins/tpm/**

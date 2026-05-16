@@ -1,0 +1,165 @@
+# i3 config generated from your Sway config
+
+# Mouse/keyboard tweaks
+#exec_always --no-startup-id n_set_kbm.sh
+
+# exec --no-startup-id xrandr --output DP-1-0 --mode 2560x1440 --rate 143.97 --right-of eDP-1 --primary --auto
+# exec --no-startup-id ~/.local/bin/scripts/auto-display.sh
+
+#workspace 1 output DP-1-0
+#workspace 2 output eDP-1
+
+# Start Dunst
+exec --no-startup-id dunst
+
+# Mod key
+set $mod Mod4
+# Home row direction keys
+set $left y
+set $down u
+set $up i
+set $right o
+# Terminal and launcher
+set $term wezterm
+set $menu rofi -show drun
+
+# Font for window titles and i3bar
+font pango:JetBrains Mono 10
+
+client.focused          #504945 #504945 #ebdbb2 #504945 #504945
+client.focused_inactive #1d2021 #1d2021 #928374 #1d2021 #1d2021
+client.unfocused        #1d2021 #1d2021 #928374 #1d2021 #1d2021
+
+# --- Output configuration ---
+
+# Example multi-monitor setup
+# Change names using `xrandr` output
+# exec --no-startup-id xrandr --output HDMI-1 --mode 2560x1440 --right-of eDP-1
+
+# --- Keybindings ---
+# Terminal
+bindsym $mod+t exec --no-startup-id "bash -c ~/.local/bin/scripts/n_tmux_rofi.sh"
+# Kill focusjd window
+bindsym $mod+x kill
+# Launcher
+bindsym $mod+r exec --no-startup-id $menu
+# Reload config (sets kbm settings and disables laptop monitor if external is plugged)
+bindsym $mod+Shift+c exec --no-startup-id "bash -c 'setxkbmap -layout us,se,no -option grp:win_space_toggle && i3 reload && ~/.local/bin/scripts/n_set_kbm.sh && ~/.local/bin/scripts/auto-display.sh'"
+bindsym $mod+Shift+x exec --no-startup-id ~/.local/bin/scripts/lock.sh
+
+
+
+
+# setxkbmap -layout us,se,no -option grp:win_space_toggle
+
+# Replace with this
+#bindsym $mod+Shift+c reload, exec --no-startup-id setxkbmap -option ctrl:swapcaps && xset r rate 250 70
+
+# Exit i3
+bindsym $mod+Shift+e exit
+
+
+# Moving focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Workspaces
+bindsym $mod+h workspace 1
+bindsym $mod+j workspace 2
+bindsym $mod+k workspace 3
+bindsym $mod+l workspace 4
+bindsym $mod+p workspace 5
+bindsym $mod+g workspace 6
+bindsym $mod+f workspace 7
+bindsym $mod+d workspace 8
+bindsym $mod+s workspace 9
+# bindsym $mod+p workspace 5
+bindsym $mod+Shift+h move container to workspace 1
+bindsym $mod+Shift+j move container to workspace 2
+bindsym $mod+Shift+k move container to workspace 3
+bindsym $mod+Shift+l move container to workspace 4
+bindsym $mod+Shift+p move container to workspace 5
+bindsym $mod+Shift+g move container to workspace 6
+bindsym $mod+Shift+f move container to workspace 7
+bindsym $mod+Shift+d move container to workspace 8
+bindsym $mod+Shift+s move container to workspace 9
+# bindsym $mod+Shift+p move container to workspace 5
+
+
+# Layouts
+bindsym $mod+b split h
+bindsym $mod+v split v
+bindsym $mod+c split none
+bindsym $mod+q exec --no-startup-id "i3-msg 'layout stacking; gaps inner all set 0; gaps outer all set 0'"
+bindsym $mod+w exec --no-startup-id "i3-msg 'layout tabbed; gaps inner all set 0; gaps outer all set 0'"
+# inner (space between windows), outer (between win and screen edge)
+bindsym $mod+e exec --no-startup-id "i3-msg 'layout toggle split; gaps inner all set 11; gaps outer all set 10'"
+bindsym $mod+BackSpace fullscreen toggle
+
+
+bindsym $mod+Shift+Return floating toggle
+bindsym $mod+Shift+t sticky toggle
+bindsym $mod+Shift+r focus mode_toggle
+
+
+
+
+# Floating modifier
+floating_modifier $mod
+
+# Resize mode
+mode "resize" {
+    bindsym $left resize shrink width 10 px
+    bindsym $down resize grow height 10 px
+    bindsym $up resize shrink height 10 px
+    bindsym $right resize grow width 10 px
+
+	bindsym h move left 20 px
+    bindsym j move down 20 px
+    bindsym k move up 20 px
+    bindsym l move right 20 px
+
+	 # Quadrants
+    bindsym q floating enable, resize set width 50 ppt height 50 ppt, move position 0 px 0 px
+    bindsym w floating enable, resize set width 50 ppt height 50 ppt, move position 50 ppt 0 px
+    bindsym e floating enable, resize set width 50 ppt height 50 ppt, move position 0 px 50 ppt
+    bindsym r floating enable, resize set width 50 ppt height 50 ppt, move position 50 ppt 50 ppt
+	
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Bind %
+bindsym $mod+Shift+4 mode "resize"
+
+# Volume keys
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Brightness keys
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+
+# Screenshot
+bindsym Print exec --no-startup-id maim ~/pictures/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym --release $mod+Shift+n exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
+
+# Big clock
+bindsym $mod+z exec --no-startup-id wezterm start -- sh -c 'timeout 3 tty-clock -s -c -C 6'
+
+# Status bar
+bar {
+    status_command while true; do date +'%Y-%m-%d %X'; sleep 1; done
+    position top
+    tray_output DP-1-0
+}
+
+

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Open highlighted file with NNN_OPENER
+$NNN_OPENER "$1"
