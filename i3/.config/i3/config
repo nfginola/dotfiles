@@ -1,13 +1,8 @@
 # Mouse/keyboard tweaks
 exec_always --no-startup-id n_set_kbm.sh
 
-# Display setup (uncomment one, then $mod+Shift+c to apply)
-# -- Both monitors: external (left, primary) + laptop (right)
-# exec_always --no-startup-id xrandr --output DP-1-0 --mode 2560x1440 --rate 143.97 --left-of eDP-1 --primary --output eDP-1 --auto
-# -- External monitor only
-exec_always --no-startup-id xrandr --output DP-1-0 --mode 2560x1440 --rate 143.97 --primary --output eDP-1 --off
-# -- Laptop only
-# exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 300 --primary --output DP-1-0 --off
+# Display setup
+exec_always --no-startup-id ~/.local/bin/scripts/display-setup.sh
 
 # Start Dunst
 exec --no-startup-id dunst
@@ -29,6 +24,9 @@ font pango:JetBrains Mono 10
 client.focused          #504945 #504945 #ebdbb2 #504945 #504945
 client.focused_inactive #1d2021 #1d2021 #928374 #1d2021 #1d2021
 client.unfocused        #1d2021 #1d2021 #928374 #1d2021 #1d2021
+
+# Toggle laptop monitor
+bindsym $mod+F12 exec --no-startup-id ~/.local/bin/scripts/toggle-laptop-monitor.sh
 
 # Keybindings
 bindsym $mod+t exec --no-startup-id "bash -c ~/.local/bin/scripts/n_tmux_rofi.sh"
