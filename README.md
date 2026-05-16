@@ -25,3 +25,9 @@ Deploys symlinks to various directories in $HOME based on the configurations her
 Each unit matches path from $HOME.
 This ensures to create backups of the local folders (.bak).
 ```
+
+save.sh
+```
+Performs selective post-processing to get a lean snapshot of relevant system details
+that are of interest to redeploy (which are otherwise too large, or cumbersome).
+```
