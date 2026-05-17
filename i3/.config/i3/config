@@ -121,5 +121,4 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym Print exec --no-startup-id maim ~/pictures/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 bindsym --release $mod+Shift+n exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
-# Status bar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# Status bar is launched by display-setup.sh after xrandr completes

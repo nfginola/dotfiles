@@ -7,3 +7,4 @@ if [ -n "$EXTERNAL" ]; then
 else
     xrandr --output "$LAPTOP" --mode 1920x1080 --rate 300 --primary
 fi
+~/.config/polybar/launch.sh
