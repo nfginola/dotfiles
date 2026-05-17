@@ -1,20 +1,22 @@
 #!/bin/bash
 
 # NVIDIA PRIME offload: uncomment to run specific apps on the dGPU via PRIME render offload.
-# Not needed here — all rendering is already offloaded to NVIDIA via xrandr setprovideroutputsource below.
+# we can skip using this if we use xrandr setprovideroutputsource
 #export __NV_PRIME_RENDER_OFFLOAD=1
 #export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export MANGOHUD=1
-export MANGOHUD_CONFIG="fps_limit=144,frametime,gpu_power,temperature"
+# export MANGOHUD=1
+# export MANGOHUD_CONFIG="fps_limit=144,frametime,gpu_power,temperature"
 
 # SDL fullscreen targets display index 1 (second/external monitor) instead of the primary
 export SDL_VIDEO_FULLSCREEN_DISPLAY=1
 
 export XCURSOR_THEME=Capitaine-Cursors
-export XCURSOR_SIZE=64
+export XCURSOR_SIZE=49
 
-# GpuPowerMizerMode=1: prefer maximum performance (vs. 0=adaptive, 2=max battery)
-nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=1" &
+# GpuPowerMizerMode: nvidia-powerd actively overrides any manual nvidia-settings assignment,
+# Default is 0 (adaptive) for dynamic power management. It's okay we keep it like this
+# since we can still get max power, and avoid airplane noises when not under load.
+# nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=1" &
 
 # PRIME output: eDP/HDMI are AMD-wired (NVIDIA frames copied through it); DP is NVIDIA-direct (no copy).
 # Skipped in integrated (NVIDIA off, no provider) and hybrid (AMD drives display; NVIDIA for per-app offload).
