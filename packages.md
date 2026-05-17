@@ -21,8 +21,10 @@
 | `fd` | 10.4.2-2 |
 | `feh` | 3.12.2-1 |
 | `ffmpeg` | 2:8.1.1-2 |
+| `flatpak` | 1:1.16.6-1 |
 | `fzf` | 0.72.0-1 |
 | `gamemode` | 1.8.2-2 |
+| `gamescope` | 3.16.23-1 |
 | `gimp` | 3.2.4-1 |
 | `git` | 2.54.0-1 |
 | `grub` | 2:2.14-1 |
@@ -40,6 +42,7 @@
 | `luarocks` | 3.13.0-5 |
 | `lutris` | 0.5.22-1 |
 | `maim` | 5.8.1-3 |
+| `mangohud` | 0.8.3-2 |
 | `mpv` | 1:0.41.0-3 |
 | `ncdu` | 2.9.2-1 |
 | `neovim` | 0.12.2-1 |
@@ -160,7 +163,7 @@
 ## Reinstall
 
 ```
-sudo pacman -S alsa-utils amd-ucode arch-install-scripts autorandr base base-devel bluez bluez-utils btop btrfs-progs dunst efibootmgr expac fastfetch fd feh ffmpeg fzf gamemode gimp git grub grub-btrfs gvfs-mtp i3status i3-wm imagemagick jq less lib32-gamemode linux linux-firmware linux-lts luarocks lutris maim mpv ncdu neovim networkmanager nnn noto-fonts noto-fonts-cjk noto-fonts-emoji nvidia-open-lts nvidia-prime nvidia-settings nvidia-utils obsidian openssh os-prober pamixer pavucontrol picom pipewire pipewire-alsa pipewire-jack pipewire-pulse polybar qbittorrent redshift ripgrep rofi rsync snap-pac snapper steam stow s-tui sudo thunar tlp tlp-rdw tmux tree-sitter-cli ttf-dejavu ufw unzip vim vulkan-radeon vulkan-tools wezterm wget winetricks wireplumber xclip xdg-user-dirs xf86-video-amdgpu xf86-video-vesa xorg-bdftopcf xorg-docs xorg-fonts-100dpi xorg-fonts-75dpi xorg-fonts-encodings xorg-font-util xorg-iceauth xorg-mkfontscale xorg-server xorg-server-common xorg-server-devel xorg-server-src xorg-server-xephyr xorg-server-xnest xorg-server-xvfb xorg-sessreg xorg-setxkbmap xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwayland xorg-xwd xorg-xwininfo xorg-xwud yt-dlp zathura zoxide zsh 
+sudo pacman -S alsa-utils amd-ucode arch-install-scripts autorandr base base-devel bluez bluez-utils btop btrfs-progs dunst efibootmgr expac fastfetch fd feh ffmpeg flatpak fzf gamemode gamescope gimp git grub grub-btrfs gvfs-mtp i3status i3-wm imagemagick jq less lib32-gamemode linux linux-firmware linux-lts luarocks lutris maim mangohud mpv ncdu neovim networkmanager nnn noto-fonts noto-fonts-cjk noto-fonts-emoji nvidia-open-lts nvidia-prime nvidia-settings nvidia-utils obsidian openssh os-prober pamixer pavucontrol picom pipewire pipewire-alsa pipewire-jack pipewire-pulse polybar qbittorrent redshift ripgrep rofi rsync snap-pac snapper steam stow s-tui sudo thunar tlp tlp-rdw tmux tree-sitter-cli ttf-dejavu ufw unzip vim vulkan-radeon vulkan-tools wezterm wget winetricks wireplumber xclip xdg-user-dirs xf86-video-amdgpu xf86-video-vesa xorg-bdftopcf xorg-docs xorg-fonts-100dpi xorg-fonts-75dpi xorg-fonts-encodings xorg-font-util xorg-iceauth xorg-mkfontscale xorg-server xorg-server-common xorg-server-devel xorg-server-src xorg-server-xephyr xorg-server-xnest xorg-server-xvfb xorg-sessreg xorg-setxkbmap xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwayland xorg-xwd xorg-xwininfo xorg-xwud yt-dlp zathura zoxide zsh 
 
 yay -S brave-bin envycontrol i3lock-color xkb-switch 
 ```
