@@ -75,7 +75,7 @@ bindsym $mod+b split h
 bindsym $mod+v split v
 bindsym $mod+q exec --no-startup-id "i3-msg 'layout stacking; gaps inner all set 0; gaps outer all set 0'"
 bindsym $mod+w exec --no-startup-id "i3-msg 'layout tabbed; gaps inner all set 0; gaps outer all set 0'"
-bindsym $mod+e exec --no-startup-id "i3-msg 'layout toggle split; gaps inner all set 11; gaps outer all set 10'"
+# bindsym $mod+e exec --no-startup-id "i3-msg 'layout toggle split; gaps inner all set 11; gaps outer all set 10'"
 bindsym $mod+BackSpace fullscreen toggle
 
 bindsym $mod+Shift+Return floating toggle
