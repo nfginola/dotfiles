@@ -30,9 +30,6 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # Plugins
-# fast-syntax-highlighting must be last since it wraps ZLE (zsh line edtior) widgets.
-# Anything loaded after it (e.g. zsh-autosuggestions) would re-wrap them, breaking
-# syntax highlighting on the first prompt until ZLE re-initializes.
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -97,3 +94,20 @@ export FZF_DEFAULT_OPTS="
 	--bind='ctrl-p:up'
 "
 source /usr/share/fzf/key-bindings.zsh
+
+# workaround: fast-syntax-highlighting (FSH) colours vanish on the first cold-start terminal.
+#
+# WezTerm cold-start 
+# → mux server sends SIGWINCH late 
+# → ZLE's resize handler wipes region_highlight (!) 
+# → prompt redraws without FSH colours.
+_fsh_rehighlight() {
+    (( $+functions[_zsh_highlight] )) && _zsh_highlight  # rebuild colour data
+    zle reset-prompt                                      # repaint with new colours
+}
+
+# register function as ZLE widget
+zle -N _fsh_rehighlight
+
+# declare callback which invokes the ZLE widget on SIGWINCH (signal window change)
+TRAPWINCH() { zle && zle _fsh_rehighlight }
