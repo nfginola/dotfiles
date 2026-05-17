@@ -74,11 +74,13 @@
 - `unzip`
 - `vim`
 - `vulkan-radeon`
+- `vulkan-tools`
 - `wezterm`
 - `wget`
 - `wireplumber`
 - `xclip`
 - `xdg-user-dirs`
+- `xf86-video-amdgpu`
 - `xf86-video-vesa`
 - `xorg-bdftopcf`
 - `xorg-docs`
