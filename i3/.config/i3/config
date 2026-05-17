@@ -21,11 +21,15 @@ set $menu rofi -show drun
 # Font for window titles and i3bar
 font pango:JetBrains Mono 10
 
+gaps inner 0
+gaps outer 0
+
 client.focused          #504945 #504945 #ebdbb2 #504945 #504945
 client.focused_inactive #1d2021 #1d2021 #928374 #1d2021 #1d2021
 client.unfocused        #1d2021 #1d2021 #928374 #1d2021 #1d2021
 
-# Toggle laptop monitor
+# Monitor management
+bindsym $mod+F11 exec --no-startup-id ~/.local/bin/scripts/extend-displays.sh
 bindsym $mod+F12 exec --no-startup-id ~/.local/bin/scripts/toggle-laptop-monitor.sh
 
 # Keybindings
