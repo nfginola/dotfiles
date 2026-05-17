@@ -9,8 +9,7 @@ Dependencies:
 dotsize.sh:
 ```
 Calculate lean and full size of dotfiles.
-These are symlinks to configuration settings in $HOME, which
-may get populated by system use.
+These are symlinks to configuration settings in $HOME, which may get populated by system use.
 
 Lean: Important configuration files only, assumes target system regenerates.
 Full: Configuration files + any system generated files.
