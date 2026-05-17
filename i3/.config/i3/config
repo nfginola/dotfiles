@@ -7,6 +7,9 @@ exec_always --no-startup-id autorandr --change
 # Start Dunst
 exec --no-startup-id dunst
 
+# Compositor
+exec --no-startup-id picom --vsync
+
 # Mod key
 set $mod Mod4
 # Home row direction keys
