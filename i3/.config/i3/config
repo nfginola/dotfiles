@@ -2,7 +2,7 @@
 exec_always --no-startup-id n_set_kbm.sh
 
 # Display setup
-exec_always --no-startup-id ~/.local/bin/scripts/display-setup.sh
+exec_always --no-startup-id autorandr --change
 
 # Start Dunst
 exec --no-startup-id dunst
@@ -29,8 +29,8 @@ client.focused_inactive #1d2021 #1d2021 #928374 #1d2021 #1d2021
 client.unfocused        #1d2021 #1d2021 #928374 #1d2021 #1d2021
 
 # Monitor management
-bindsym $mod+F11 exec --no-startup-id ~/.local/bin/scripts/extend-displays.sh
-bindsym $mod+F12 exec --no-startup-id ~/.local/bin/scripts/toggle-laptop-monitor.sh
+bindsym $mod+F11 exec --no-startup-id autorandr external
+bindsym $mod+F12 exec --no-startup-id autorandr extended
 
 # Keybindings
 bindsym $mod+t exec --no-startup-id "bash -c ~/.local/bin/scripts/n_tmux_rofi.sh"
@@ -121,4 +121,4 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym Print exec --no-startup-id maim ~/pictures/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 bindsym --release $mod+Shift+n exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
-# Status bar is launched by display-setup.sh after xrandr completes
+# Status bar is launched by autorandr postswitch hook
