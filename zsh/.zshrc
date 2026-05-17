@@ -30,9 +30,12 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # Plugins
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
+# fast-syntax-highlighting must be last since it wraps ZLE (zsh line edtior) widgets.
+# Anything loaded after it (e.g. zsh-autosuggestions) would re-wrap them, breaking
+# syntax highlighting on the first prompt until ZLE re-initializes.
 zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Prompt
 __git_branch() {
