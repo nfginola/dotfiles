@@ -2,7 +2,7 @@
 exec_always --no-startup-id n_set_kbm.sh
 
 # Display setup
-exec_always --no-startup-id autorandr --change
+exec_always --no-startup-id n_home_display_init.sh
 
 # Start Dunst
 exec --no-startup-id dunst
@@ -32,8 +32,8 @@ client.focused_inactive #1d2021 #1d2021 #928374 #1d2021 #1d2021
 client.unfocused        #1d2021 #1d2021 #928374 #1d2021 #1d2021
 
 # Monitor management
-bindsym $mod+F11 exec --no-startup-id autorandr external
-bindsym $mod+F12 exec --no-startup-id autorandr extended
+bindsym $mod+F11 exec --no-startup-id n_home_display_single.sh
+bindsym $mod+F12 exec --no-startup-id n_home_display_extend.sh
 
 # Keybindings
 bindsym $mod+t exec --no-startup-id "bash -c ~/.local/bin/scripts/n_tmux_rofi.sh"
