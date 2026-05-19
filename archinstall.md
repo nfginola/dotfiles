@@ -229,7 +229,7 @@ yay -S envycontrol
 pacman -S snapper snap-pac
 
 # Terminal tools
-pacman -S wezterm tmux zsh nnn git curl wget openssh ripgrep fd jq unzip btop ncdu stow base-devel fzf zoxide s-tui zathura redshift fastfetch imagemagick neovim
+pacman -S wezterm tmux zsh nnn git curl wget openssh ripgrep fd jq unzip p7zip btop ncdu stow base-devel fzf zoxide s-tui zathura redshift fastfetch imagemagick neovim
 
 # Home directory
 pacman -S xdg-user-dirs
