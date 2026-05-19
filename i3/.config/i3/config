@@ -121,7 +121,7 @@ bindsym $mod+equal exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 # bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 
 # Screenshot
-bindsym Print exec --no-startup-id maim ~/pictures/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym Print exec --no-startup-id maim $XDG_PICTURES_DIR/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 bindsym --release $mod+Shift+n exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # Status bar is launched by autorandr postswitch hook
