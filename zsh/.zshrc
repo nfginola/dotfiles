@@ -114,3 +114,7 @@ zle -N _fsh_rehighlight
 
 # declare callback which invokes the ZLE widget on SIGWINCH (signal window change)
 TRAPWINCH() { zle && zle _fsh_rehighlight }
+
+if [[ -f "$HOME/.zshrc.work" ]]; then
+    source "$HOME/.zshrc.work"
+fi
