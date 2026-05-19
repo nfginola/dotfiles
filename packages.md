@@ -77,6 +77,7 @@
 | `stow` | 2.4.1-1 |
 | `s-tui` | 1.4.0-1 |
 | `sudo` | 1.9.17.p2-2 |
+| `task` | 3.4.2-1 |
 | `thunar` | 4.20.8-3 |
 | `tlp` | 1.10.0-1 |
 | `tlp-rdw` | 1.10.0-1 |
@@ -163,7 +164,7 @@
 ## Reinstall
 
 ```
-sudo pacman -S alsa-utils amd-ucode arch-install-scripts autorandr base base-devel bluez bluez-utils btop btrfs-progs dunst efibootmgr expac fastfetch fd feh ffmpeg flatpak fzf gamemode gamescope gimp git grub grub-btrfs gvfs-mtp i3status i3-wm imagemagick jq less lib32-gamemode linux linux-firmware linux-lts luarocks lutris maim mangohud mpv ncdu neovim networkmanager nnn noto-fonts noto-fonts-cjk noto-fonts-emoji nvidia-open-lts nvidia-prime nvidia-settings nvidia-utils obsidian openssh os-prober pamixer pavucontrol picom pipewire pipewire-alsa pipewire-jack pipewire-pulse polybar qbittorrent redshift ripgrep rofi rsync snap-pac snapper steam stow s-tui sudo thunar tlp tlp-rdw tmux tree-sitter-cli ttf-dejavu ufw unzip vim vulkan-radeon vulkan-tools wezterm wget winetricks wireplumber xclip xdg-user-dirs xf86-video-amdgpu xf86-video-vesa xorg-bdftopcf xorg-docs xorg-fonts-100dpi xorg-fonts-75dpi xorg-fonts-encodings xorg-font-util xorg-iceauth xorg-mkfontscale xorg-server xorg-server-common xorg-server-devel xorg-server-src xorg-server-xephyr xorg-server-xnest xorg-server-xvfb xorg-sessreg xorg-setxkbmap xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwayland xorg-xwd xorg-xwininfo xorg-xwud yt-dlp zathura zoxide zsh 
+sudo pacman -S alsa-utils amd-ucode arch-install-scripts autorandr base base-devel bluez bluez-utils btop btrfs-progs dunst efibootmgr expac fastfetch fd feh ffmpeg flatpak fzf gamemode gamescope gimp git grub grub-btrfs gvfs-mtp i3status i3-wm imagemagick jq less lib32-gamemode linux linux-firmware linux-lts luarocks lutris maim mangohud mpv ncdu neovim networkmanager nnn noto-fonts noto-fonts-cjk noto-fonts-emoji nvidia-open-lts nvidia-prime nvidia-settings nvidia-utils obsidian openssh os-prober pamixer pavucontrol picom pipewire pipewire-alsa pipewire-jack pipewire-pulse polybar qbittorrent redshift ripgrep rofi rsync snap-pac snapper steam stow s-tui sudo task thunar tlp tlp-rdw tmux tree-sitter-cli ttf-dejavu ufw unzip vim vulkan-radeon vulkan-tools wezterm wget winetricks wireplumber xclip xdg-user-dirs xf86-video-amdgpu xf86-video-vesa xorg-bdftopcf xorg-docs xorg-fonts-100dpi xorg-fonts-75dpi xorg-fonts-encodings xorg-font-util xorg-iceauth xorg-mkfontscale xorg-server xorg-server-common xorg-server-devel xorg-server-src xorg-server-xephyr xorg-server-xnest xorg-server-xvfb xorg-sessreg xorg-setxkbmap xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwayland xorg-xwd xorg-xwininfo xorg-xwud yt-dlp zathura zoxide zsh 
 
 yay -S brave-bin envycontrol i3lock-color xkb-switch 
 ```
