@@ -30,9 +30,25 @@ export NNN_FIFO="$TMPDIR/nnn.fifo"
 #Key binding for nnn is in quitcd.sh
 #source $HOME/.local/bin/helpers/quitcd.sh
 
+if [[ -f "$HOME/.bash_aliases" ]]; then
+    . "$HOME/.bash_aliases"
+fi
+
+if ! shopt -oq posix; then
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [[ -f /etc/bash_completion ]]; then
+        . /etc/bash_completion
+    fi
+fi
+
 alias j='z'
 alias jj='zi'
 # zoxide must be at bottom
 eval "$(zoxide init bash)"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+if [[ -f "$HOME/.bashrc.work" ]]; then
+    . "$HOME/.bashrc.work"
+fi
