@@ -2,9 +2,9 @@
 killall -q polybar
 while pgrep -u $UID -x polybar > /dev/null; do sleep 0.1; done
 
-if ls /sys/class/power_supply/BAT* &>/dev/null; then
+if [[ -z "${POLYBAR_MODULES_RIGHT:-}" ]] && ls /sys/class/power_supply/BAT* &>/dev/null; then
     export POLYBAR_MODULES_RIGHT="volume battery"
-else
+elif [[ -z "${POLYBAR_MODULES_RIGHT:-}" ]]; then
     export POLYBAR_MODULES_RIGHT="volume"
 fi
 
