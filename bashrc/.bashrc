@@ -7,7 +7,7 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='\[\e[1;34m\]\W\[\e[0m\] \$ '
+PS1='\[\e[1;38;5;214m\]\W\[\e[0m\] \$ '
 
 # export SUDO_EDITOR=/usr/bin/vim
 # export EDITOR=/usr/bin/vim
