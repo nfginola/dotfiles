@@ -78,7 +78,7 @@ _ls_colors=(
 export LS_COLORS="${(j[:])_ls_colors}"
 alias grep='grep --color=auto'
 alias j='z'
-alias jj='zi'
+alias jf='zi'
 alias claude='claude --allow-dangerously-skip-permissions'
 alias rp='realpath'
 
@@ -86,7 +86,7 @@ alias rp='realpath'
 #source $HOME/.local/bin/scripts/quitcd.sh
 
 # zoxide
-#eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 # Keybindings
 bindkey '^R' history-incremental-search-backward
