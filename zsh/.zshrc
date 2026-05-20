@@ -1,14 +1,6 @@
 # (ctrl + s) in terminal sends a stop signal (legacy TTY feature): annoying, remove
 stty -ixon
 
-# zinit bootstrap
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-if [[ ! -d $ZINIT_HOME ]]; then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-source "${ZINIT_HOME}/zinit.zsh"
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -96,7 +88,11 @@ export FZF_DEFAULT_OPTS="
 	--bind='ctrl-n:down'
 	--bind='ctrl-p:up'
 "
-source /usr/share/fzf/key-bindings.zsh
+if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+    source /usr/share/fzf/key-bindings.zsh
+elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
 
 # workaround: fast-syntax-highlighting (FSH) colours vanish on the first cold-start terminal.
 #
