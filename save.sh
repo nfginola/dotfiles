@@ -44,4 +44,19 @@ echo "git clone https://aur.archlinux.org/yay.git" >> "$OUT"
 echo "cd yay && makepkg -si" >> "$OUT"
 echo "\`\`\`" >> "$OUT"
 
+cat >> "$OUT" << 'EOF'
+
+## Notes
+
+### Desktop entries (rofi)
+
+Rofi (`mod+r`) sources app entries from `.desktop` files. User-installed apps should have their `.desktop` file placed in:
+
+```
+~/.local/share/applications/
+```
+
+System-wide entries (managed by pacman) live in `/usr/share/applications/`.
+EOF
+
 echo "Generated $OUT"

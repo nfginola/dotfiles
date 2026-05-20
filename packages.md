@@ -175,3 +175,15 @@ yay -S brave-bin envycontrol i3lock-color xkb-switch
 git clone https://aur.archlinux.org/yay.git
 cd yay && makepkg -si
 ```
+
+## Notes
+
+### Desktop entries (rofi)
+
+Rofi (`mod+r`) sources app entries from `.desktop` files. User-installed apps should have their `.desktop` file placed in:
+
+```
+~/.local/share/applications/
+```
+
+System-wide entries (managed by pacman) live in `/usr/share/applications/`.
