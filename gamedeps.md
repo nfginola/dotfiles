@@ -32,14 +32,20 @@ sudo pacman -S steam lutris gamemode lib32-gamemode winetricks lib32-nvidia-util
 
 ## Final Fantasy XIV
 
-Install XIVLauncher and Flatseal via Flatpak:
+Install XIVLauncher via Flatpak:
 
 ```bash
 flatpak install flathub dev.goats.xivlauncher
-flatpak install flathub com.github.tchx84.Flatseal  # Flatseal — manage Flatpak permissions
 ```
 
-Flatseal is required to grant XIVLauncher access to a custom install directory outside the Flatpak default.
+Grant XIVLauncher access to the custom game directory and move the game files there:
+
+```bash
+flatpak override --user --filesystem=/data/games/ffxiv dev.goats.xivlauncher
+mv ~/.xlcore/game /data/games/ffxiv
+```
+
+Then in XIVLauncher: **Settings → Game → Game Installation Location** → set to `/data/games/ffxiv`.
 
 Reference: https://goatcorp.github.io/faq/steamdeck
 
