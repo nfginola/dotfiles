@@ -1,8 +1,8 @@
 # Mouse/keyboard tweaks
-exec_always --no-startup-id n_set_kbm.sh
+exec_always --no-startup-id ~/.local/bin/scripts/n_set_kbm.sh
 
 # Display setup
-exec_always --no-startup-id n_home_display_init.sh
+exec_always --no-startup-id ~/.local/bin/scripts/n_home_display_init.sh
 
 # Start Dunst
 exec --no-startup-id dunst
