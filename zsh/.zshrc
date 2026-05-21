@@ -70,7 +70,7 @@ _ls_colors=(
 export LS_COLORS="${(j[:])_ls_colors}"
 alias grep='grep --color=auto'
 alias j='z'
-alias jf='zi'
+# alias jf='zi'
 alias claude='claude --allow-dangerously-skip-permissions'
 alias rp='realpath'
 
@@ -114,3 +114,13 @@ TRAPWINCH() { zle && zle _fsh_rehighlight }
 if [[ -f "$HOME/.zshrc.work" ]]; then
     source "$HOME/.zshrc.work"
 fi
+
+# zinit stuff above this
+
+unalias zi 2>/dev/null
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# fzf
+command -v fzf >/dev/null && eval "$(fzf --zsh)"
