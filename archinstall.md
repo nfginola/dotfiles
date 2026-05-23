@@ -324,7 +324,7 @@ mkdir -p ~/dotfiles && cd ~/dotfiles && git init
 # zinit (zsh plugin manager)
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 # uv (Python manager)
-curl -LsSf https://astral.sh/uv/install.sh | sh
+sudo pacman -S uv
 # Claude Code
 curl -fsSL https://claude.ai/install.sh | bash
 
