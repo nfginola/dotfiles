@@ -3,6 +3,7 @@
 | Package       | Portable | Notes                                                                                 |
 | ------------- | -------- | ------------------------------------------------------------------------------------- |
 | `autorandr`   | No       | Profiles are EDID-fingerprinted to specific monitors; re-save on new hardware         |
+| `obs`         | Yes      | Global and user settings only; scenes/sources are in `basic/` and not tracked         |
 | `xorg`        | No       | `.xinitrc` has NVIDIA PRIME setup (`envycontrol`, `xrandr --setprovideroutputsource`) |
 | `redshift`    | No       | Hardcoded lat/lon (59.91, 10.75); update for different location                       |
 | `i3`          | Partial  | Monitor keybindings assume `external`/`extended` autorandr profiles exist             |

@@ -245,7 +245,7 @@ yay -S brave-bin i3lock-color xkb-switch  # i3lock-color replaces i3lock, do not
 pacman -S pipewire pipewire-jack pipewire-pulse pipewire-alsa wireplumber alsa-utils pamixer pavucontrol
 
 # Video
-pacman -S ffmpeg mpv yt-dlp
+pacman -S ffmpeg mpv yt-dlp obs-studio
 
 # Storage - gvfs-mtp pulls gvfs-udisks2-volume-monitor which handles automounting
 pacman -S gvfs-mtp
@@ -320,6 +320,7 @@ mkdir -p ~/dotfiles && cd ~/dotfiles && git init
 # stow -D <package>       - remove symlinks
 # stow -R <package>       - restow (remove and recreate)
 # stow --adopt <package>  - adopt existing files into the package
+# Launch OBS once before stowing so it creates ~/.config/obs-studio/, then: stow obs
 
 # zinit (zsh plugin manager)
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
