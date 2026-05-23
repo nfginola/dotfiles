@@ -187,3 +187,4 @@ Rofi (`mod+r`) sources app entries from `.desktop` files. User-installed apps sh
 ```
 
 System-wide entries (managed by pacman) live in `/usr/share/applications/`.
+
