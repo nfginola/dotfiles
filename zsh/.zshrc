@@ -123,4 +123,14 @@ unalias zi 2>/dev/null
 eval "$(zoxide init zsh)"
 
 # fzf
-command -v fzf >/dev/null && eval "$(fzf --zsh)"
+# Debian's packaged fzf may not support `fzf --zsh`, so fall back to the shipped
+# completion script when that flag is unavailable.
+if command -v fzf >/dev/null; then
+    if fzf --zsh >/dev/null 2>&1; then
+        eval "$(fzf --zsh)"
+    elif [[ -f /usr/share/fzf/completion.zsh ]]; then
+        source /usr/share/fzf/completion.zsh
+    elif [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
+        source /usr/share/doc/fzf/examples/completion.zsh
+    fi
+fi
