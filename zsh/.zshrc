@@ -70,7 +70,7 @@ _ls_colors=(
 export LS_COLORS="${(j[:])_ls_colors}"
 alias grep='grep --color=auto'
 alias j='z'
-# alias jf='zi'
+alias jf='zi'
 alias claude='claude --allow-dangerously-skip-permissions'
 alias rp='realpath'
 
