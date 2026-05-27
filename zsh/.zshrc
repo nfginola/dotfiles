@@ -85,6 +85,7 @@ bindkey '^R' history-incremental-search-backward
 
 # FZF
 export FZF_DEFAULT_OPTS="
+	--no-mouse
 	--bind='ctrl-n:down'
 	--bind='ctrl-p:up'
 "
@@ -121,6 +122,7 @@ unalias zi 2>/dev/null
 
 # zoxide
 eval "$(zoxide init zsh)"
+
 
 # fzf
 # Debian's packaged fzf may not support `fzf --zsh`, so fall back to the shipped
