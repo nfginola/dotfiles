@@ -53,6 +53,7 @@ export NNN_OPENER="$HOME/.local/bin/scripts/opener.sh"
 
 # Aliases
 alias ls='ls --color=auto'
+alias l='exa -lh --sort=modified --group-directories-first'
 _ls_colors=(
     "di=38;5;214"   # directories       — amber
     "fi=38;5;177"   # regular files     — purple floral
