@@ -229,7 +229,7 @@ yay -S envycontrol
 pacman -S snapper snap-pac
 
 # Terminal tools
-pacman -S wezterm tmux zsh nnn git curl wget openssh ripgrep fd jq unzip p7zip btop ncdu stow base-devel fzf zoxide s-tui zathura redshift fastfetch imagemagick neovim
+pacman -S wezterm tmux zsh nnn git curl wget openssh ripgrep fd jq unzip p7zip btop ncdu stow base-devel fzf zoxide s-tui zathura redshift fastfetch imagemagick neovim eza
 
 # Home directory
 pacman -S xdg-user-dirs
@@ -242,7 +242,8 @@ pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu
 yay -S brave-bin i3lock-color xkb-switch  # i3lock-color replaces i3lock, do not install both
 
 # Audio
-pacman -S pipewire pipewire-jack pipewire-pulse pipewire-alsa wireplumber alsa-utils pamixer pavucontrol
+pacman -S pipewire pipewire-jack pipewire-pulse pipewire-alsa wireplumber alsa-utils pamixer pavucontrol easyeffects lsp-plugins-lv2
+yay -S deepfilternet-plugin-pipewire-bin
 
 # Video
 pacman -S ffmpeg mpv yt-dlp obs-studio
