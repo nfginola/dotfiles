@@ -5,7 +5,7 @@ visiblePage=pluginsPage
 visiblePlugin=compressor#0
 
 [StreamOutputs]
-outputDevice=bluez_output.B8_20_8E_36_04_0B.1
+outputDevice=alsa_output.pci-0000_06_00.6.analog-stereo
 
 [Window]
 height=1388
