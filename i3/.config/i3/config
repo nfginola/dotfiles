@@ -8,7 +8,7 @@ exec_always --no-startup-id ~/.local/bin/scripts/n_home_display_init.sh
 exec --no-startup-id dunst
 
 # Compositor
-exec_always --no-startup-id picom --vsync
+# exec_always --no-startup-id picom --vsync
 
 # Mod key
 set $mod Mod4
