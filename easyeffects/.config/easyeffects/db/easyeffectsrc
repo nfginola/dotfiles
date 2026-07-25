@@ -1,13 +1,13 @@
 [StreamInputs]
 inputDevice=alsa_input.pci-0000_06_00.6.analog-stereo
-plugins=rnnoise#0,deepfilternet#0,compressor#0
+plugins=compressor#0,rnnoise#0,deepfilternet#0
 visiblePage=pluginsPage
 visiblePlugin=compressor#0
 
 [StreamOutputs]
-outputDevice=alsa_output.pci-0000_06_00.6.analog-stereo
+outputDevice=bluez_output.8C_A9_6F_23_3B_B4.1
 
 [Window]
-height=1388
+height=1362
 visiblePage=inputPage
-width=1276
+width=2556
