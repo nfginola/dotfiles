@@ -30,3 +30,10 @@ save.sh
 Performs selective post-processing to get a lean snapshot of relevant system details
 that are of interest to redeploy (which are otherwise too large, or cumbersome).
 ```
+
+Docs:
+- `bluetooth.md` — Bluetooth audio troubleshooting (adapter pairable/bonding issues)
+- `obs-virtualcam.md` — using OBS Virtual Camera to screen-share into Discord
+  across workspaces
+- `_not_stowable/` — configs that live outside `$HOME` (`/etc`), deployed via
+  each subfolder's `setup.sh` instead of stow
