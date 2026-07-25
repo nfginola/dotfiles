@@ -35,11 +35,37 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 # Prompt
 __git_branch() {
     local branch
-    branch=$(git symbolic-ref --short HEAD 2>/dev/null) || return
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null) || branch=$(git rev-parse --short HEAD 2>/dev/null) || return
     echo " %F{red}($branch)%f"
 }
 setopt PROMPT_SUBST
-PS1='%B%F{214}%~%f%b$(__git_branch) $ '
+
+# Toggle prompt path display: 'tp' switches between full path and current directory only
+export PROMPT_PATH_MODE="short"  # Start with current dir only (%1~); set to "full" for full path (%~)
+
+_update_prompt() {
+    if [[ "$PROMPT_PATH_MODE" == "full" ]]; then
+        PS1='%B%F{214}%~%f%b$(__git_branch) $ '     # Full path with ~ for home
+    else
+        PS1='%B%F{214}%1~%f%b$(__git_branch) $ '    # Just current directory name
+    fi
+}
+_update_prompt  # Initialize prompt on shell startup
+
+# Function to toggle between short and full path modes
+tp() {
+    if [[ "$PROMPT_PATH_MODE" == "full" ]]; then
+        PROMPT_PATH_MODE="short"
+    else
+        PROMPT_PATH_MODE="full"
+    fi
+    _update_prompt
+    zle reset-prompt 2>/dev/null || true
+}
+
+chpwd() {
+    _update_prompt
+}
 
 # Env
 export SUDO_EDITOR=nvim
