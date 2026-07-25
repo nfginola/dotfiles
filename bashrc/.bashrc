@@ -17,7 +17,20 @@ EDITOR=nvim
 VISUAL=nvim
 
 
-PATH=$PATH:$HOME/.local/bin/scripts/
+# Add "$1" to PATH only if not already present (avoids duplicates on repeated sourcing)
+prepend_path () {
+    case ":$PATH:" in
+        *:"$1":*) ;;
+        *) PATH="$1${PATH:+:$PATH}" ;;
+    esac
+}
+append_path () {
+    case ":$PATH:" in
+        *:"$1":*) ;;
+        *) PATH="${PATH:+$PATH:}$1" ;;
+    esac
+}
+append_path "$HOME/.local/bin/scripts/"
 TMPDIR=$HOME/.tmp
 
 #export NNN_OPTS="dAUea"
@@ -47,7 +60,8 @@ alias jj='zi'
 # zoxide must be at bottom
 eval "$(zoxide init bash)"
 
-export PATH="$HOME/.local/bin:$PATH"
+prepend_path "$HOME/.local/bin"
+unset -f append_path prepend_path
 
 if [[ -f "$HOME/.bashrc.work" ]]; then
     . "$HOME/.bashrc.work"
