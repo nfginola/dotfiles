@@ -1,8 +1,22 @@
 # (ctrl + s) in terminal sends a stop signal (legacy TTY feature): annoying, remove
 stty -ixon
 
+# PATH
 # Deduplicate PATH
 typeset -U PATH path
+export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts/:$PATH"
+
+# Env
+export SUDO_EDITOR=nvim
+export EDITOR=nvim
+export VISUAL=nvim
+export TMPDIR=$HOME/.tmp
+
+# NNN
+export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
+export NNN_PLUG='j:autojump;f:fzopen;p:preview-tui;d:diffs;v:imgview;k:fzcd;e:eedit'
+export NNN_FIFO="$TMPDIR/nnn.fifo"
+export NNN_OPENER="$HOME/.local/bin/scripts/opener.sh"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -31,6 +45,27 @@ zinit light-mode for \
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
+
+# zinit aliases "zi" but it is also used for zoxide by default
+# unalias zinit since we're done with that
+unalias zi 2>/dev/null
+
+# workaround: fast-syntax-highlighting (FSH) colours vanish on the first cold-start terminal.
+#
+# WezTerm cold-start
+# → mux server sends SIGWINCH late
+# → ZLE's resize handler wipes region_highlight (!)
+# → prompt redraws without FSH colours.
+_fsh_rehighlight() {
+    (( $+functions[_zsh_highlight] )) && _zsh_highlight  # rebuild colour data
+    zle reset-prompt                                      # repaint with new colours
+}
+
+# register function as ZLE widget
+zle -N _fsh_rehighlight
+
+# declare callback which invokes the ZLE widget on SIGWINCH (signal window change)
+TRAPWINCH() { zle && zle _fsh_rehighlight }
 
 # Prompt
 __git_branch() {
@@ -63,23 +98,6 @@ tp() {
     zle reset-prompt 2>/dev/null || true
 }
 
-chpwd() {
-    _update_prompt
-}
-
-# Env
-export SUDO_EDITOR=nvim
-export EDITOR=nvim
-export VISUAL=nvim
-export TMPDIR=$HOME/.tmp
-export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts/:$PATH"
-
-# NNN
-export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
-export NNN_PLUG='j:autojump;f:fzopen;p:preview-tui;d:diffs;v:imgview;k:fzcd;e:eedit'
-export NNN_FIFO="$TMPDIR/nnn.fifo"
-export NNN_OPENER="$HOME/.local/bin/scripts/opener.sh"
-
 # Aliases
 alias ls='ls --color=auto'
 alias l='exa -lh --sort=modified --group-directories-first'
@@ -110,9 +128,6 @@ alias rp='realpath'
 # zoxide
 eval "$(zoxide init zsh)"
 
-# Keybindings
-bindkey '^R' history-incremental-search-backward
-
 # FZF
 export FZF_DEFAULT_OPTS="
 	--no-mouse
@@ -125,36 +140,6 @@ elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
     source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
-# workaround: fast-syntax-highlighting (FSH) colours vanish on the first cold-start terminal.
-#
-# WezTerm cold-start 
-# → mux server sends SIGWINCH late 
-# → ZLE's resize handler wipes region_highlight (!) 
-# → prompt redraws without FSH colours.
-_fsh_rehighlight() {
-    (( $+functions[_zsh_highlight] )) && _zsh_highlight  # rebuild colour data
-    zle reset-prompt                                      # repaint with new colours
-}
-
-# register function as ZLE widget
-zle -N _fsh_rehighlight
-
-# declare callback which invokes the ZLE widget on SIGWINCH (signal window change)
-TRAPWINCH() { zle && zle _fsh_rehighlight }
-
-if [[ -f "$HOME/.zshrc.work" ]]; then
-    source "$HOME/.zshrc.work"
-fi
-
-# zinit stuff above this
-
-unalias zi 2>/dev/null
-
-# zoxide
-eval "$(zoxide init zsh)"
-
-
-# fzf
 # Debian's packaged fzf may not support `fzf --zsh`, so fall back to the shipped
 # completion script when that flag is unavailable.
 if command -v fzf >/dev/null; then
@@ -165,4 +150,8 @@ if command -v fzf >/dev/null; then
     elif [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
         source /usr/share/doc/fzf/examples/completion.zsh
     fi
+fi
+
+if [[ -f "$HOME/.zshrc.work" ]]; then
+    source "$HOME/.zshrc.work"
 fi
