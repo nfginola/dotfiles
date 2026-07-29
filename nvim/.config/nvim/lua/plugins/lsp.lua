@@ -1,4 +1,6 @@
 ---@diagnostic disable: missing-fields
+local paths = require("config.paths")
+
 return {
 	{
 		-- The servers implementing LSP solves other things:
@@ -169,6 +171,7 @@ return {
 			vim.lsp.config['ols'] = {
 				capabilities = capabilities,
 				cmd = { 'ols' },
+				cmd_env = { OLS_BUILTIN_FOLDER = paths.odin_builtin },
 				filetypes = { 'odin' },
 				root_markers = { 'ols.json', '.git' },
 			}
