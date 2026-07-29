@@ -65,7 +65,7 @@
 | `obsidian` | 1.12.7-3 |
 | `obs-studio` | 32.1.2-7 |
 | `odinfmt` | dev_2026_05-1 |
-| `ols` | dev_2026_05-1 |
+| `ols` | dev_2026_06-1 |
 | `openssh` | 10.3p1-1 |
 | `os-prober` | 1.84-1 |
 | `pacman-contrib` | 1.13.1-1 |
