@@ -11,7 +11,14 @@ return {
 
 	-- Useful plugin to show you pending keybinds.
 	{
-		'folke/which-key.nvim', opts = {}
+		'folke/which-key.nvim',
+		opts = {
+			spec = {
+				{ '<leader>m', group = 'Pin: set mark' },
+				{ '<leader>j', group = 'Pin: jump to mark' },
+				{ '<leader>M', group = 'Pin: manage' },
+			},
+		},
 	},
 
 	-- Autopair
@@ -55,11 +62,31 @@ return {
 
 	-- Inline markdown renderer
 	{
-		"OXY2DEV/markview.nvim",
+		"MeanderingProgrammer/render-markdown.nvim",
 		lazy = false,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
+		},
+		opts = {
+			heading = {
+				width = 'block',
+				left_pad = 1,
+				right_pad = 1,
+				-- Defaults link to Diff*/Visual/CursorColumn highlights, which
+				-- render as loud full-width bars that clash with the theme.
+				backgrounds = {},
+			},
+			code = {
+				width = 'block',
+				left_pad = 1,
+				right_pad = 1,
+				border = 'thin',
+			},
+			bullet = {
+				left_pad = 1,
+				right_pad = 1,
+			},
 		},
 	},
 }

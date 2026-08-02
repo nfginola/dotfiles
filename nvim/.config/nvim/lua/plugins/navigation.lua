@@ -32,9 +32,28 @@ return
 			require("oil").setup(
 				{
 					skip_confirm_for_simple_edits = true,
+					view_options = {
+						show_hidden = true,
+					},
+					keymaps = {
+						["q"] = { "actions.close", mode = "n" },
+						["<CR>"] = {
+							callback = function()
+								local oil = require("oil")
+								local entry = oil.get_cursor_entry()
+								if entry and entry.name == ".." then
+									require("oil.actions").parent.callback()
+								else
+									oil.select()
+								end
+							end,
+							mode = "n",
+						},
+					},
 				})
 
 				vim.keymap.set('n', '<Leader>fe', function() require('oil').open_float('.') end)
+				vim.keymap.set('n', '<Leader>fo', function() require('oil').open_float() end)
 		end,
 	},
 

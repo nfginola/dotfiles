@@ -28,7 +28,7 @@ return {
     config = function()
       require('gitsigns').setup({
         -- See `:help gitsigns.txt`
-        current_line_blame = true,
+        current_line_blame = false,
         current_line_blame_formatter = " <author>, <author_time:%R> (<author_time:%Y-%m-%d>) - <summary> ",
         current_line_blame_opts = {
           virt_text = true,

@@ -1,6 +1,7 @@
 -- manually loading since we don't go through lazy plugin load
 require("config.options")
 require("config.keymaps")
+require("config.pins")
 require("config.autocmds")
 require("config.usercmds")
 
