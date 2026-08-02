@@ -27,6 +27,18 @@ if envycontrol --query 2>/dev/null | grep -q "^nvidia$"; then
     # without this, NVIDIA output won't be forwarded to the iGPU
     xrandr --setprovideroutputsource NVIDIA "$SINK"
     xrandr --auto
+
+    # Disable VRR/G-Sync: causes aggressive shimmering in fullscreen video/MPV/games,
+    # a longstanding Nvidia Linux driver bug. VRR only actually engages in fullscreen
+    # (windowed content stays on fixed refresh via the compositor), which is why the
+    # shimmer only ever showed up there. AllowVRR is the current attribute name
+    # (AllowGSYNC is deprecated); confirmed via `nvidia-settings -q all` that AllowVRR
+    # is technically an X Screen attribute, but assigning it through [gpu:0] still applies.
+    # Note: this only takes effect at X startup. It has been observed to silently flip
+    # back to 1 mid-session with no known trigger yet (not steam/nvidia-settings-GUI/
+    # optimus-manager - none were running when it happened). If shimmer returns without
+    # an X restart, re-run this command manually: nvidia-settings --assign "[gpu:0]/AllowVRR=0"
+    nvidia-settings --assign "[gpu:0]/AllowVRR=0" >/dev/null 2>&1
 fi
 
 # Wraps i3 so apps (notifications, portals, tray) have a D-Bus session to connect to
